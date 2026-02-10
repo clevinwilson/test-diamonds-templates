@@ -1,272 +1,392 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHRESTHA DIAMONDS - Home</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <div class="logo-section">
-                    <h1 class="main-logo">SHRESTHA DIAMONDS</h1>
-                    <p class="sub-logo">OMKAR EXPORTS & IMPORTS</p>
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+        />
+        <title>SHRESTHA DIAMONDS - Home</title>
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <!-- Navigation - transparent over hero, solid on scroll -->
+        <nav class="navbar navbar-transparent" id="navbar">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="logo-section">
+                        <a
+                            href="index.html"
+                            class="logo-link"
+                            aria-label="SHRESTHA DIAMONDS - Home"
+                        >
+                            <img
+                                src="assets/images/logo.png"
+                                alt="SHRESTHA DIAMONDS"
+                                class="nav-logo"
+                            />
+                        </a>
+                    </div>
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="our-story.html">Our Story</a></li>
+                        <li><a href="our-products.html">Our Products</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
                 </div>
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="our-story.html">Our Story</a></li>
-                    <li><a href="our-products.html">Our Products</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-background">
-            <div class="hero-overlay"></div>
-            <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1920&q=80" alt="Diamond Collection" class="hero-image">
-        </div>
-        <div class="container">
+        <!-- Hero Section - Jeton-style full viewport with video -->
+        <section class="hero hero-fullscreen">
+            <div class="hero-background">
+                <video
+                    class="hero-video"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    poster="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1920&q=80"
+                >
+                    <source
+                        src="assets/videos/Luxury_Diamond_Animation_Website_Background.mp4"
+                        type="video/mp4"
+                        muted
+                        loop
+                        playsinline
+                    />
+                    <img
+                        src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1920&q=80"
+                        alt="Diamond Collection"
+                        class="hero-image"
+                    />
+                </video>
+                <div class="hero-overlay"></div>
+            </div>
             <div class="hero-content">
-                <div class="hero-text fade-in-up">
-                    <h2 class="hero-tagline">Diamonds are timelessly elegant; we bring the elegance from mines to jewellery.</h2>
+                <p class="hero-eyebrow reveal-text">
+                    Diamonds for every moment
+                </p>
+                <h1 class="hero-headline reveal-text">
+                    From mines<br />to jewellery.
+                </h1>
+                <div class="hero-cta reveal-text">
+                    <a href="#collection" class="btn-hero-primary"
+                        >Explore Collection</a
+                    >
                 </div>
             </div>
-        </div>
-    </section>
+            <div class="scroll-indicator reveal-text">
+                <span class="scroll-text">Scroll</span>
+                <span class="scroll-line"></span>
+            </div>
+        </section>
 
-    <!-- Image Gallery Section -->
-    <section class="gallery-section">
-        <div class="container">
-            <h2 class="section-title scroll-fade-in">Our Diamond Collection</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item scroll-slide-in-left">
-                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&q=80" alt="Solitaire Diamond" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <h3>Solitaire</h3>
+        <!-- Image Gallery Section -->
+        <section id="collection" class="gallery-section section-reveal">
+            <div class="container">
+                <h2 class="section-title scroll-fade-in">
+                    Our Diamond Collection
+                </h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item scroll-slide-in-left">
+                        <img
+                            src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&q=80"
+                            alt="Solitaire Diamond"
+                            class="gallery-image"
+                        />
+                        <div class="gallery-overlay">
+                            <h3>Solitaire</h3>
+                        </div>
                     </div>
-                </div>
-                <div class="gallery-item scroll-slide-in-up">
-                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&q=80" alt="Diamond Ring" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <h3>Elegant Rings</h3>
+                    <div class="gallery-item scroll-slide-in-up">
+                        <img
+                            src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&q=80"
+                            alt="Diamond Ring"
+                            class="gallery-image"
+                        />
+                        <div class="gallery-overlay">
+                            <h3>Elegant Rings</h3>
+                        </div>
                     </div>
-                </div>
-                <div class="gallery-item scroll-slide-in-right">
-                    <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=800&q=80" alt="Diamond Jewelry" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <h3>Luxury Collection</h3>
+                    <div class="gallery-item scroll-slide-in-right">
+                        <img
+                            src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=800&q=80"
+                            alt="Diamond Jewelry"
+                            class="gallery-image"
+                        />
+                        <div class="gallery-overlay">
+                            <h3>Luxury Collection</h3>
+                        </div>
                     </div>
-                </div>
-                <div class="gallery-item scroll-slide-in-left">
-                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&q=80" alt="Diamond Necklace" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <h3>Necklaces</h3>
+                    <div class="gallery-item scroll-slide-in-left">
+                        <img
+                            src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&q=80"
+                            alt="Diamond Necklace"
+                            class="gallery-image"
+                        />
+                        <div class="gallery-overlay">
+                            <h3>Necklaces</h3>
+                        </div>
                     </div>
-                </div>
-                <div class="gallery-item scroll-slide-in-up">
-                    <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=800&q=80" alt="Diamond Earrings" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <h3>Earrings</h3>
+                    <div class="gallery-item scroll-slide-in-up">
+                        <img
+                            src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=800&q=80"
+                            alt="Diamond Earrings"
+                            class="gallery-image"
+                        />
+                        <div class="gallery-overlay">
+                            <h3>Earrings</h3>
+                        </div>
                     </div>
-                </div>
-                <div class="gallery-item scroll-slide-in-right">
-                    <img src="https://images.unsplash.com/photo-1603561596110-0e5e14a3b8a4?w=800&q=80" alt="Diamond Bracelet" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <h3>Bracelets</h3>
+                    <div class="gallery-item scroll-slide-in-right">
+                        <img
+                            src="https://images.unsplash.com/photo-1603561596110-0e5e14a3b8a4?w=800&q=80"
+                            alt="Diamond Bracelet"
+                            class="gallery-image"
+                        />
+                        <div class="gallery-overlay">
+                            <h3>Bracelets</h3>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Diamond Selection Box -->
-    <section class="diamond-selection">
-        <div class="container">
-            <h2 class="section-title scroll-fade-in">Choose your diamond</h2>
-            <div class="selection-box scroll-fade-in-delay">
-                <form id="diamondForm" class="diamond-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>DIAMOND TYPE</label>
-                            <select id="diamondType" class="form-control">
-                                <option value="">Select Type</option>
-                                <option value="solitaire">SOLITAIRE</option>
-                                <option value="two">TWO</option>
-                                <option value="star-melle">STAR MELLE</option>
-                                <option value="polki">POLKI</option>
-                                <option value="solitaire-">SOLITAIRE -</option>
-                            </select>
+        <!-- Diamond Selection Box -->
+        <section class="diamond-selection section-reveal">
+            <div class="container">
+                <h2 class="section-title scroll-fade-in">
+                    Choose your diamond
+                </h2>
+                <div class="selection-box scroll-fade-in-delay">
+                    <form id="diamondForm" class="diamond-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>DIAMOND TYPE</label>
+                                <select id="diamondType" class="form-control">
+                                    <option value="">Select Type</option>
+                                    <option value="solitaire">SOLITAIRE</option>
+                                    <option value="two">TWO</option>
+                                    <option value="star-melle">
+                                        STAR MELLE
+                                    </option>
+                                    <option value="polki">POLKI</option>
+                                    <option value="solitaire-">
+                                        SOLITAIRE -
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>SHAPE</label>
+                                <select id="shape" class="form-control">
+                                    <option value="">Select Shape</option>
+                                    <option value="round">ROUND</option>
+                                    <option value="brilliant-cut">
+                                        BRILLIANT CUT
+                                    </option>
+                                    <option value="oval">OVAL</option>
+                                    <option value="pear">PEAR</option>
+                                    <option value="marquise">MARQUISE</option>
+                                    <option value="princess">PRINCESS</option>
+                                    <option value="cushion">CUSHION</option>
+                                    <option value="heart">HEART</option>
+                                    <option value="radiant">RADIANT</option>
+                                    <option value="trillant">TRILLANT</option>
+                                    <option value="emerald">EMERALD</option>
+                                    <option value="asscher-cut">
+                                        ASSCHER CUT
+                                    </option>
+                                    <option value="baguette">BAGUETTE</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>CARAT RANGE</label>
+                                <select id="caratRange" class="form-control">
+                                    <option value="">Select Carat</option>
+                                    <option value="0.20-0.30">
+                                        0.20-0.30 Ct
+                                    </option>
+                                    <option value="0.30-0.40">
+                                        0.30-0.40 Ct
+                                    </option>
+                                    <option value="0.40-0.50">
+                                        0.40-0.50 Ct
+                                    </option>
+                                    <option value="0.50-0.60">
+                                        0.50-0.60 Ct
+                                    </option>
+                                    <option value="0.60-0.70">
+                                        0.60-0.70 Ct
+                                    </option>
+                                    <option value="0.70-0.80">
+                                        0.70-0.80 Ct
+                                    </option>
+                                    <option value="0.80-0.90">
+                                        0.80-0.90 Ct
+                                    </option>
+                                    <option value="0.90-1.00">
+                                        0.90-1.00 Ct
+                                    </option>
+                                    <option value="1.00-1.20">
+                                        1.00-1.20 Ct
+                                    </option>
+                                    <option value="1.20-1.40">
+                                        1.20-1.40 Ct
+                                    </option>
+                                    <option value="1.40-1.60">
+                                        1.40-1.60 Ct
+                                    </option>
+                                    <option value="1.60-1.80">
+                                        1.60-1.80 Ct
+                                    </option>
+                                    <option value="1.80-2.00">
+                                        1.80-2.00 Ct
+                                    </option>
+                                    <option value="2+">2+ Carat</option>
+                                </select>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label>SHAPE</label>
-                            <select id="shape" class="form-control">
-                                <option value="">Select Shape</option>
-                                <option value="round">ROUND</option>
-                                <option value="brilliant-cut">BRILLIANT CUT</option>
-                                <option value="oval">OVAL</option>
-                                <option value="pear">PEAR</option>
-                                <option value="marquise">MARQUISE</option>
-                                <option value="princess">PRINCESS</option>
-                                <option value="cushion">CUSHION</option>
-                                <option value="heart">HEART</option>
-                                <option value="radiant">RADIANT</option>
-                                <option value="trillant">TRILLANT</option>
-                                <option value="emerald">EMERALD</option>
-                                <option value="asscher-cut">ASSCHER CUT</option>
-                                <option value="baguette">BAGUETTE</option>
-                            </select>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>COLOUR</label>
+                                <select id="colour" class="form-control">
+                                    <option value="">Select Colour</option>
+                                    <option value="D">D</option>
+                                    <option value="E">E</option>
+                                    <option value="F">F</option>
+                                    <option value="G">G</option>
+                                    <option value="H">H</option>
+                                    <option value="I">I</option>
+                                    <option value="J">J</option>
+                                    <option value="KL">KL</option>
+                                    <option value="M">M</option>
+                                    <option value="NOP">NOP</option>
+                                    <option value="OR">OR</option>
+                                    <option value="S-W">S-W</option>
+                                    <option value="XYZ">XYZ</option>
+                                    <option value="fancy">FANCY COLOUR</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>CLARITY</label>
+                                <select id="clarity" class="form-control">
+                                    <option value="">Select Clarity</option>
+                                    <option value="F/IF">F/IF</option>
+                                    <option value="VVS1">VVS1</option>
+                                    <option value="VVS2">VVS2</option>
+                                    <option value="VS1">VS1</option>
+                                    <option value="VS2">VS2</option>
+                                    <option value="SI1">SI1</option>
+                                    <option value="SI2">SI2</option>
+                                    <option value="I1">I1</option>
+                                    <option value="I2">I2</option>
+                                    <option value="13">13</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>CUT</label>
+                                <select id="cut" class="form-control">
+                                    <option value="">Select Cut</option>
+                                    <option value="excellent">EXCELLENT</option>
+                                    <option value="very-good">VERY GOOD</option>
+                                    <option value="good">GOOD</option>
+                                    <option value="fair">FAIR</option>
+                                    <option value="poor">POOR</option>
+                                </select>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label>CARAT RANGE</label>
-                            <select id="caratRange" class="form-control">
-                                <option value="">Select Carat</option>
-                                <option value="0.20-0.30">0.20-0.30 Ct</option>
-                                <option value="0.30-0.40">0.30-0.40 Ct</option>
-                                <option value="0.40-0.50">0.40-0.50 Ct</option>
-                                <option value="0.50-0.60">0.50-0.60 Ct</option>
-                                <option value="0.60-0.70">0.60-0.70 Ct</option>
-                                <option value="0.70-0.80">0.70-0.80 Ct</option>
-                                <option value="0.80-0.90">0.80-0.90 Ct</option>
-                                <option value="0.90-1.00">0.90-1.00 Ct</option>
-                                <option value="1.00-1.20">1.00-1.20 Ct</option>
-                                <option value="1.20-1.40">1.20-1.40 Ct</option>
-                                <option value="1.40-1.60">1.40-1.60 Ct</option>
-                                <option value="1.60-1.80">1.60-1.80 Ct</option>
-                                <option value="1.80-2.00">1.80-2.00 Ct</option>
-                                <option value="2+">2+ Carat</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>COLOUR</label>
-                            <select id="colour" class="form-control">
-                                <option value="">Select Colour</option>
-                                <option value="D">D</option>
-                                <option value="E">E</option>
-                                <option value="F">F</option>
-                                <option value="G">G</option>
-                                <option value="H">H</option>
-                                <option value="I">I</option>
-                                <option value="J">J</option>
-                                <option value="KL">KL</option>
-                                <option value="M">M</option>
-                                <option value="NOP">NOP</option>
-                                <option value="OR">OR</option>
-                                <option value="S-W">S-W</option>
-                                <option value="XYZ">XYZ</option>
-                                <option value="fancy">FANCY COLOUR</option>
-                            </select>
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label>MOBILE NUMBER</label>
+                                <input
+                                    type="tel"
+                                    id="mobileNumber"
+                                    class="form-control"
+                                    placeholder="Enter your mobile number"
+                                    required
+                                />
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label>CLARITY</label>
-                            <select id="clarity" class="form-control">
-                                <option value="">Select Clarity</option>
-                                <option value="F/IF">F/IF</option>
-                                <option value="VVS1">VVS1</option>
-                                <option value="VVS2">VVS2</option>
-                                <option value="VS1">VS1</option>
-                                <option value="VS2">VS2</option>
-                                <option value="SI1">SI1</option>
-                                <option value="SI2">SI2</option>
-                                <option value="I1">I1</option>
-                                <option value="I2">I2</option>
-                                <option value="13">13</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label>CUT</label>
-                            <select id="cut" class="form-control">
-                                <option value="">Select Cut</option>
-                                <option value="excellent">EXCELLENT</option>
-                                <option value="very-good">VERY GOOD</option>
-                                <option value="good">GOOD</option>
-                                <option value="fair">FAIR</option>
-                                <option value="poor">POOR</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group full-width">
-                            <label>MOBILE NUMBER</label>
-                            <input type="tel" id="mobileNumber" class="form-control" placeholder="Enter your mobile number" required>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn-submit">Register & Continue</button>
-                </form>
+                        <button type="submit" class="btn-submit">
+                            Register & Continue
+                        </button>
+                    </form>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Book Your Trade Section -->
-    <section class="book-trade-section">
-        <div class="container">
-            <div class="book-trade-content scroll-scale-in">
-                <a href="https://wa.me/918904611111?text=Hello%20SHRESTHA%20DIAMONDS,%20I%20would%20like%20to%20book%20a%20trade." class="btn-whatsapp" target="_blank">
-                    <span>📱</span> BOOK YOUR TRADE
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certification Logos -->
-    <section class="certifications">
-        <div class="container">
-            <h2 class="section-title scroll-fade-in">Our Certifications</h2>
-            <div class="logos-grid">
-                <div class="logo-item">
-                    <div class="logo-placeholder">GJEPC</div>
-                </div>
-                <div class="logo-item">
-                    <div class="logo-placeholder">GIA</div>
-                </div>
-                <div class="logo-item">
-                    <div class="logo-placeholder">IGI</div>
-                </div>
-                <div class="logo-item">
-                    <div class="logo-placeholder">HRD Antwerp</div>
-                </div>
-                <div class="logo-item">
-                    <div class="logo-placeholder">DDE</div>
-                </div>
-                <div class="logo-item">
-                    <div class="logo-placeholder">FIEO</div>
-                </div>
-                <div class="logo-item">
-                    <div class="logo-placeholder">Kimberley Process</div>
+        <!-- Book Your Trade Section -->
+        <section class="book-trade-section section-reveal">
+            <div class="container">
+                <div class="book-trade-content scroll-scale-in">
+                    <a
+                        href="https://wa.me/918904611111?text=Hello%20SHRESTHA%20DIAMONDS,%20I%20would%20like%20to%20book%20a%20trade."
+                        class="btn-whatsapp"
+                        target="_blank"
+                    >
+                        <span>📱</span> BOOK YOUR TRADE
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 SHRESTHA DIAMONDS. All rights reserved.</p>
-        </div>
-    </footer>
+        <!-- Certification Logos -->
+        <section class="certifications section-reveal">
+            <div class="container">
+                <h2 class="section-title scroll-fade-in">Our Certifications</h2>
+                <div class="logos-grid">
+                    <div class="logo-item">
+                        <div class="logo-placeholder">GJEPC</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-placeholder">GIA</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-placeholder">IGI</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-placeholder">HRD Antwerp</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-placeholder">DDE</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-placeholder">FIEO</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-placeholder">Kimberley Process</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <script src="script.js"></script>
-</body>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2025 SHRESTHA DIAMONDS. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script src="assets/js/config.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
 </html>
