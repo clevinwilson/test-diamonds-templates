@@ -110,7 +110,7 @@
     }
 
     /**
-     * Diamond selection form: collect fields and send via WhatsApp.
+     * Diamond selection form: shape buttons, sliders, and WhatsApp submit.
      */
     function initDiamondForm() {
         const form = document.getElementById("diamondForm");
@@ -120,6 +120,94 @@
             typeof CONFIG !== "undefined" && CONFIG.whatsapp
                 ? CONFIG.whatsapp.india
                 : "918904611111";
+
+        const shapeInput = document.getElementById("shape");
+        const colourSlider = document.getElementById("colourSlider");
+        const colourValueEl = document.getElementById("colourValue");
+        const claritySlider = document.getElementById("claritySlider");
+        const clarityValueEl = document.getElementById("clarityValue");
+        const cutSlider = document.getElementById("cutSlider");
+        const cutValueEl = document.getElementById("cutValue");
+
+        const colourGrades = ["D", "E", "F", "G", "H", "I", "J", "K", "L", "M"];
+        const clarityGrades = [
+            "IF",
+            "VVS1",
+            "VVS2",
+            "VS1",
+            "VS2",
+            "SI1",
+            "SI2",
+            "SI3",
+            "I1",
+            "I2",
+            "I3",
+        ];
+        const cutGrades = ["Poor", "Fair", "Good", "Very Good", "Excellent"];
+
+        function highlightLabelAt(labelsContainer, index) {
+            if (!labelsContainer) return;
+            const spans = labelsContainer.querySelectorAll("span");
+            spans.forEach((s, i) => s.classList.toggle("active", i === index));
+        }
+
+        function updateColourLabel() {
+            if (!colourSlider || !colourValueEl) return;
+            const i = parseInt(colourSlider.value, 10);
+            const letter = colourGrades[Math.min(i, colourGrades.length - 1)];
+            colourValueEl.textContent = i <= 0 ? letter : "D – " + letter;
+            highlightLabelAt(
+                document.querySelector(".slider-labels-colour"),
+                i,
+            );
+        }
+
+        function updateClarityLabel() {
+            if (!claritySlider || !clarityValueEl) return;
+            const i = parseInt(claritySlider.value, 10);
+            clarityValueEl.textContent =
+                i <= 0
+                    ? clarityGrades[0]
+                    : clarityGrades[0] +
+                      " – " +
+                      clarityGrades[Math.min(i, clarityGrades.length - 1)];
+            highlightLabelAt(
+                document.querySelector(".slider-labels-clarity"),
+                i,
+            );
+        }
+
+        function updateCutLabel() {
+            if (!cutSlider || !cutValueEl) return;
+            const i = parseInt(cutSlider.value, 10);
+            cutValueEl.textContent =
+                i <= 0
+                    ? cutGrades[0]
+                    : cutGrades[0] +
+                      " – " +
+                      cutGrades[Math.min(i, cutGrades.length - 1)];
+            highlightLabelAt(document.querySelector(".slider-labels-cut"), i);
+        }
+
+        if (colourSlider)
+            colourSlider.addEventListener("input", updateColourLabel);
+        if (claritySlider)
+            claritySlider.addEventListener("input", updateClarityLabel);
+        if (cutSlider) cutSlider.addEventListener("input", updateCutLabel);
+        updateColourLabel();
+        updateClarityLabel();
+        updateCutLabel();
+
+        form.querySelectorAll(".shape-btn").forEach((btn) => {
+            btn.addEventListener("click", () => {
+                form.querySelectorAll(".shape-btn").forEach((b) =>
+                    b.classList.remove("active"),
+                );
+                btn.classList.add("active");
+                if (shapeInput)
+                    shapeInput.value = btn.getAttribute("data-shape") || "";
+            });
+        });
 
         form.addEventListener("submit", (e) => {
             e.preventDefault();
@@ -131,19 +219,36 @@
                 return;
             }
 
-            const get = (id) =>
-                document.getElementById(id)?.value || "Not specified";
+            const get = (id) => document.getElementById(id)?.value || "";
+            const shape = shapeInput?.value || "Not specified";
+            const colourIdx = colourSlider
+                ? parseInt(colourSlider.value, 10)
+                : 0;
+            const colour =
+                colourGrades[Math.min(colourIdx, colourGrades.length - 1)];
+            const clarityIdx = claritySlider
+                ? parseInt(claritySlider.value, 10)
+                : 0;
+            const clarity =
+                clarityGrades[Math.min(clarityIdx, clarityGrades.length - 1)];
+            const cutIdx = cutSlider ? parseInt(cutSlider.value, 10) : 0;
+            const cut = cutGrades[Math.min(cutIdx, cutGrades.length - 1)];
+            const priceMin = get("priceMin") || "Not specified";
+            const priceMax = get("priceMax") || "Not specified";
+            const caratRange = get("caratRange") || "Not specified";
+
             const message = [
                 "Hello SHRESTHA DIAMONDS,",
                 "",
                 "I would like to register and inquire about:",
                 "",
-                `Diamond Type: ${get("diamondType")}`,
-                `Shape: ${get("shape")}`,
-                `Carat Range: ${get("caratRange")}`,
-                `Colour: ${get("colour")}`,
-                `Clarity: ${get("clarity")}`,
-                `Cut: ${get("cut")}`,
+                `Diamond Type: ${get("diamondType") || "Not specified"}`,
+                `Shape: ${shape}`,
+                `Carat Range: ${caratRange}`,
+                `Colour: up to ${colour}`,
+                `Clarity: up to ${clarity}`,
+                `Cut: up to ${cut}`,
+                `Price Range: ${priceMin} – ${priceMax}`,
                 `Mobile: ${mobileNumber}`,
             ].join("\n");
 

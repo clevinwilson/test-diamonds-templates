@@ -8,12 +8,25 @@
         />
         <title>Our Products - SHRESTHA DIAMONDS</title>
         <link rel="stylesheet" href="assets/css/main.css" />
+        <link
+            rel="preload"
+            href="assets/images/icons.svg"
+            as="image"
+            type="image/svg+xml"
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
             rel="stylesheet"
+            media="print"
+            onload="this.media = 'all'"
         />
+        <noscript
+            ><link
+                href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+                rel="stylesheet"
+        /></noscript>
     </head>
     <body>
         <!-- Navigation -->
@@ -30,6 +43,9 @@
                                 src="assets/images/logo.png"
                                 alt="SHRESTHA DIAMONDS"
                                 class="nav-logo"
+                                width="120"
+                                height="75"
+                                decoding="async"
                             />
                         </a>
                     </div>
@@ -131,15 +147,23 @@
                         href="https://wa.me/918904611111?text=Hello%20SHRESTHA%20DIAMONDS,%20I%20would%20like%20to%20book%20a%20trade%20from%20India."
                         class="btn-whatsapp btn-india"
                         target="_blank"
+                        rel="noopener noreferrer"
                     >
-                        <span>📱</span> BOOK YOUR TRADE - INDIA
+                        <svg class="btn-icon" aria-hidden="true">
+                            <use href="assets/images/icons.svg#icon-whatsapp" />
+                        </svg>
+                        BOOK YOUR TRADE - INDIA
                     </a>
                     <a
                         href="https://wa.me/977?text=Hello%20SHRESTHA%20DIAMONDS,%20I%20would%20like%20to%20book%20a%20trade%20from%20Nepal."
                         class="btn-whatsapp btn-nepal"
                         target="_blank"
+                        rel="noopener noreferrer"
                     >
-                        <span>📱</span> BOOK YOUR TRADE - NEPAL
+                        <svg class="btn-icon" aria-hidden="true">
+                            <use href="assets/images/icons.svg#icon-whatsapp" />
+                        </svg>
+                        BOOK YOUR TRADE - NEPAL
                     </a>
                 </div>
             </div>
@@ -151,7 +175,7 @@
                 <p>&copy; 2025 SHRESTHA DIAMONDS. All rights reserved.</p>
             </div>
         </footer>
-        <script src="assets/js/config.js"></script>
-        <script src="assets/js/main.js"></script>
+        <script src="assets/js/config.js" defer></script>
+        <script src="assets/js/main.js" defer></script>
     </body>
 </html>
