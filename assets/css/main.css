@@ -99,6 +99,14 @@ img {
     box-shadow: none;
 }
 
+/* Inner pages (not index): always solid nav; index uses .scrolled when scrolled */
+.navbar:not(.navbar-transparent) {
+    background-color: rgb(1, 35, 97);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+}
+
 .navbar.scrolled {
     background-color: rgb(1, 35, 97);
     -webkit-backdrop-filter: blur(12px);
@@ -2283,6 +2291,11 @@ img {
 
 /* Mobile (768px and below) - tablets in portrait, large phones */
 @media (max-width: 768px) {
+    /* Prevent navbar from clipping the fixed hamburger when .scrolled */
+    .navbar {
+        overflow: visible;
+    }
+
     /* Mobile Navigation */
     .mobile-menu-toggle {
         display: flex;
