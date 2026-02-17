@@ -30,6 +30,8 @@
     --gray-medium: #e0e0e0;
     --text-dark: #333333;
     --text-light: #666666;
+    /* Navbar height for inner-page hero offset (padding + logo height) */
+    --navbar-height: 110px;
     /* Luxury accents */
     --gold: #c9a962;
     --gold-light: #e4d4a5;
@@ -40,7 +42,7 @@
 }
 
 body {
-    font-family: "Inter", sans-serif;
+    font-family: "DM Sans", sans-serif;
     color: var(--text-dark);
     line-height: 1.6;
     background-color: var(--white);
@@ -274,6 +276,23 @@ img {
     justify-content: flex-start;
 }
 
+/* Page hero - inner pages (Our Story, etc.) - compact height, offset below fixed nav */
+.hero-page {
+    min-height: 50vh;
+    padding: 0;
+    padding-top: var(--navbar-height);
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+/* Our Story hero - card-style banner */
+.hero-story {
+    position: relative;
+}
+
+
+
 .hero-background {
     position: absolute;
     top: 0;
@@ -330,7 +349,7 @@ img {
     z-index: 2;
     max-width: 720px;
     margin: 0;
-    padding: 0 2.5rem 4.5rem 2.5rem;
+    padding: 0 2.5rem 5rem 2.5rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -352,9 +371,48 @@ img {
     font-size: clamp(2.5rem, 8vw, 6.25rem);
     font-weight: 700;
     line-height: 1.05;
-    margin: 0 0 1rem;
+    margin: 0 0 1.25rem;
     letter-spacing: -0.03em;
     text-shadow: 0 2px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Our Story hero specific typography */
+.hero-eyebrow--story {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    color: var(--gold-light);
+}
+
+.hero-eyebrow-icon {
+    font-size: 0.9rem;
+    color: var(--gold);
+    transform: translateY(-1px);
+}
+
+.hero-headline--story {
+    font-family: "DM Sans", sans-serif;
+}
+
+.hero-headline-line {
+    display: inline-block;
+}
+
+.hero-headline-line--primary {
+    color: #ffffff;
+}
+
+.hero-headline-line--accent {
+    color: var(--gold-light);
+    font-style: italic;
+}
+
+.hero-subline--story {
+    max-width: 420px;
+    font-size: 0.98rem;
+    color: rgba(255, 255, 255, 0.88);
 }
 
 .hero-subline {
@@ -678,7 +736,7 @@ img {
 }
 
 .quality-card h3 {
-    font-family: "Playfair Display", serif;
+    font-family: "DM Sans", sans-serif;
     font-size: 1.35rem;
     color: var(--primary-blue);
     margin-bottom: 0.75rem;
@@ -827,7 +885,7 @@ img {
     border: 2px solid var(--gray-medium);
     border-radius: 10px;
     font-size: 1rem;
-    font-family: "Inter", sans-serif;
+    font-family: "DM Sans", sans-serif;
     transition:
         border-color 0.2s ease,
         box-shadow 0.2s ease;
@@ -878,7 +936,7 @@ img {
     font-size: 0.75rem;
     font-weight: 500;
     color: var(--text-dark);
-    font-family: "Inter", sans-serif;
+    font-family: "DM Sans", sans-serif;
 }
 
 .shape-btn:hover {
@@ -1100,7 +1158,7 @@ img {
     border: 2px solid var(--gray-medium);
     border-radius: 8px;
     font-size: 1rem;
-    font-family: "Inter", sans-serif;
+    font-family: "DM Sans", sans-serif;
     transition: all 0.3s ease;
     background-color: var(--white);
     color: var(--text-dark);
@@ -1127,7 +1185,7 @@ img {
     border: 2px solid var(--gray-medium);
     border-radius: 8px;
     font-size: 1rem;
-    font-family: "Inter", sans-serif;
+    font-family: "DM Sans", sans-serif;
     background-color: var(--white);
     color: var(--text-dark);
     cursor: pointer;
@@ -1164,7 +1222,7 @@ img {
     text-decoration: none;
     display: inline-block;
     text-align: center;
-    font-family: "Inter", sans-serif;
+    font-family: "DM Sans", sans-serif;
     box-shadow: 0 4px 15px rgba(0, 35, 96, 0.3);
 }
 
@@ -1381,7 +1439,7 @@ img {
 }
 
 .why-shrestha-headline {
-    font-family: "Playfair Display", serif;
+    font-family: "DM Sans", sans-serif;
     font-size: clamp(1.75rem, 3vw, 2.5rem);
     font-weight: 600;
     color: var(--primary-blue);
@@ -1580,6 +1638,403 @@ img {
     }
 }
 
+/* Choose Us Section - reference UI (our-story) */
+.choose-us-section {
+    padding: 4rem 0;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+    margin-top: -2rem; /* lift section into hero's white fade for seamless blend */
+}
+
+.choose-us-container {
+    max-width: 1200px;
+}
+
+.choose-us-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4.25rem;
+    align-items: center;
+}
+
+.choose-us-content {
+    max-width: 560px;
+}
+
+.choose-us-title {
+    font-family: "DM Sans", sans-serif;
+    font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+    font-weight: 700;
+    color: #2b2b2b;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+}
+
+.choose-us-lead {
+    color: #8a8a8a;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 520px;
+}
+
+.choose-us-features {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 3rem;
+    row-gap: 2.25rem;
+}
+
+.choose-us-feature {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.choose-us-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    background: #e9eeee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #111111;
+}
+
+.choose-us-icon-svg {
+    width: 22px;
+    height: 22px;
+    display: block;
+}
+
+.choose-us-feature-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #2b2b2b;
+    line-height: 1.25;
+}
+
+.choose-us-feature-text {
+    font-size: 0.82rem;
+    color: #8a8a8a;
+    line-height: 1.65;
+    max-width: 240px;
+}
+
+.choose-us-media {
+    position: relative;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.choose-us-media::before,
+.choose-us-media::after {
+    content: "";
+    position: absolute;
+    background-image: radial-gradient(
+        circle,
+        rgba(201, 169, 98, 0.95) 2.2px,
+        transparent 2.2px
+    );
+    background-size: 18px 18px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.choose-us-media::before {
+    width: 180px;
+    height: 120px;
+    top: -18px;
+    left: -40px;
+    opacity: 0.65;
+}
+
+.choose-us-media::after {
+    width: 160px;
+    height: 120px;
+    top: 38%;
+    left: -64px;
+    opacity: 0.45;
+}
+
+.choose-us-image-card {
+    width: min(540px, 100%);
+    background: #ececec;
+    border-radius: 22px;
+    padding: 16px;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 1;
+}
+
+.choose-us-image-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    height: auto;
+    object-fit: cover;
+    border-radius: 18px;
+    display: block;
+}
+
+@media (max-width: 900px) {
+    .choose-us-grid {
+        grid-template-columns: 1fr;
+        gap: 2.75rem;
+    }
+
+    .choose-us-content {
+        max-width: none;
+    }
+
+    .choose-us-feature-text {
+        max-width: none;
+    }
+
+    .choose-us-media {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 520px) {
+    .choose-us-section {
+        padding: 3rem 0;
+        margin-top: -1.25rem;
+    }
+
+    .choose-us-features {
+        grid-template-columns: 1fr;
+        row-gap: 1.75rem;
+    }
+
+    .choose-us-media::before,
+    .choose-us-media::after {
+        display: none;
+    }
+}
+
+/* Design Help Section - interior collage layout (index hero-follow) */
+.design-help-section {
+    padding: 5.5rem 0 7.5rem;
+    background: #ffffff;
+}
+
+.design-help-container {
+    max-width: 1200px;
+}
+
+.design-help-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.design-help-media {
+    position: relative;
+    min-height: 460px;
+}
+
+.design-help-dots {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 210px;
+    height: 150px;
+    background-image: radial-gradient(circle, #4ba084 2px, transparent 2px);
+    background-size: 18px 18px;
+    opacity: 0.9;
+    pointer-events: none;
+}
+
+.design-card {
+    position: absolute;
+    border-radius: 22px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+}
+
+.design-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.design-card--large {
+    top: 38px;
+    left: 40px;
+    width: min(460px, 85%);
+    aspect-ratio: 4 / 3;
+}
+
+.design-card--top-right {
+    top: 0;
+    left: calc(40px + min(460px, 85%) - 180px);
+    width: 240px;
+    aspect-ratio: 4 / 3;
+}
+
+.design-card--bottom {
+    top: 190px;
+    left: 190px;
+    width: 280px;
+    height: auto; /* allow full image to be visible */
+}
+
+.design-help-content {
+    max-width: 480px;
+}
+
+.design-help-title {
+    font-family: "DM Sans", sans-serif;
+    font-size: clamp(1.9rem, 3vw, 2.6rem);
+    font-weight: 700;
+    color: #262626;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+}
+
+.design-help-lead {
+    font-size: 0.95rem;
+    color: #777777;
+    line-height: 1.8;
+    margin-bottom: 1.9rem;
+}
+
+.design-help-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.75rem;
+    margin-bottom: 2.25rem;
+}
+
+.design-help-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: #555555;
+}
+
+.design-help-list li {
+    position: relative;
+    padding-left: 1.4rem;
+}
+
+.design-help-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background-color: #4ba084;
+    transform: translateY(-50%);
+}
+
+.design-help-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 2.2rem;
+    border-radius: 999px;
+    border: none;
+    background-color: #111111;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.design-help-btn:hover {
+    background-color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 900px) {
+    .design-help-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .design-help-media {
+        min-height: 380px;
+    }
+
+    .design-card--large {
+        left: 16px;
+        width: min(420px, 82%);
+    }
+
+    .design-card--top-right {
+        left: calc(16px + min(420px, 82%) - 160px);
+    }
+
+    .design-card--bottom {
+        top: 190px;
+        left: 140px;
+    }
+
+    .design-help-content {
+        max-width: none;
+    }
+}
+
+@media (max-width: 520px) {
+    .design-help-section {
+        padding: 3.25rem 0;
+    }
+
+    .design-help-list {
+        grid-template-columns: 1fr;
+    }
+
+    .design-help-media {
+        min-height: 320px;
+    }
+
+    .design-help-dots {
+        width: 180px;
+        height: 130px;
+        opacity: 0.8;
+    }
+
+    .design-card--large {
+        left: 8px;
+        width: calc(100% - 32px);
+    }
+
+    .design-card--top-right {
+        display: none;
+    }
+
+    .design-card--bottom {
+        top: 190px;
+        left: 70px;
+        width: 220px;
+        height: auto;
+    }
+}
+
 /* About SHRESTHA DIAMONDS Section – bg image + refined UI */
 .about-clara-section {
     padding: 5rem 0;
@@ -1607,6 +2062,26 @@ img {
     padding: 0 20px;
     position: relative;
     z-index: 1;
+}
+
+.about-clara-section--centered .about-clara-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+}
+
+.about-clara-section--centered .about-clara-content {
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.about-clara-section--centered .about-clara-eyebrow,
+.about-clara-section--centered .about-clara-headline,
+.about-clara-section--centered .about-clara-body {
+    text-align: center;
+}
+
+.about-clara-section--centered .book-trade-buttons--dark {
+    justify-content: center;
 }
 
 .about-clara-content {
@@ -1660,6 +2135,49 @@ img {
 }
 
 .btn-about-clara:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Inline CTA buttons inside dark (about-clara) section */
+.book-trade-buttons--dark {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.btn-about-clara-inline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: #ffffff;
+    padding: 0.9rem 1.75rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.25s ease,
+        box-shadow 0.3s ease;
+}
+
+.btn-about-clara-inline .btn-icon {
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 0.5rem;
+    color: currentColor;
+}
+
+.btn-about-clara-inline:hover {
     background: rgba(255, 255, 255, 0.15);
     border-color: #ffffff;
     transform: translateY(-2px);
@@ -1730,6 +2248,15 @@ img {
     .btn-about-clara {
         width: 100%;
         text-align: center;
+    }
+
+    .book-trade-buttons--dark {
+        flex-direction: column;
+    }
+
+    .btn-about-clara-inline {
+        width: 100%;
+        justify-content: center;
     }
 }
 
@@ -1845,7 +2372,7 @@ img {
 }
 
 .page-title {
-    font-family: "Playfair Display", serif;
+    font-family: "DM Sans", sans-serif;
     font-size: 3rem;
     color: var(--primary-blue);
     text-align: center;
@@ -1882,7 +2409,7 @@ img {
 }
 
 .section-subtitle {
-    font-family: "Playfair Display", serif;
+    font-family: "DM Sans", sans-serif;
     font-size: 2rem;
     color: var(--primary-blue);
     margin-bottom: 1.5rem;
@@ -2096,7 +2623,7 @@ img {
 }
 
 .footer-heading {
-    font-family: "Playfair Display", serif;
+    font-family: "DM Sans", sans-serif;
     font-size: 0.95rem;
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -2327,6 +2854,10 @@ img {
         max-width: 240px;
         object-fit: contain;
         object-position: left center;
+    }
+
+    .hero-page {
+        padding-top: 92px;
     }
 
     .main-logo {
@@ -2763,6 +3294,10 @@ img {
         max-width: 200px;
     }
 
+    .hero-page {
+        padding-top: 84px;
+    }
+
     .navbar .container {
         padding-left: max(1rem, env(safe-area-inset-left));
         padding-right: max(1rem, env(safe-area-inset-right));
@@ -3025,6 +3560,10 @@ img {
     .hero {
         min-height: 300px;
         padding: 2rem 0;
+    }
+
+    .hero-page {
+        min-height: 45vh;
     }
 
     .hero-tagline {
