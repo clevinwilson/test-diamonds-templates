@@ -12,11 +12,14 @@
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" media="print" onload="this.media = 'all'" />
-    <noscript>
-        <link
-            href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
-            rel="stylesheet" />
-    </noscript>
+    <meta name="description"
+        content="Contact SHRESTHA DIAMONDS for premium certified diamonds. Discuss samples, pricing, and tailored selections. Rapid delivery across South India and Nepal." />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Contact Us | SHRESTHA DIAMONDS" />
+    <meta property="og:description"
+        content="Get in touch with our diamond experts for premium GIA/IGI certified stones and wholesale trade enquiries." />
+    <meta property="og:url" content="https://shresthadiamonds.com/contact.html" />
 </head>
 
 <body>
@@ -106,10 +109,14 @@
                 <!-- Right Side: Contact Form -->
                 <form id="contactForm" class="contact-form scroll-fade-in"
                     style="background: white; padding: 2.5rem; border-radius: 4px; box-shadow: 0 20px 40px rgba(0, 35, 96, 0.05); border: 1px solid rgba(0,0,0,0.05);">
+                    <div class="hp-field">
+                        <label for="b_email">Bot Email</label>
+                        <input type="text" id="b_email" name="b_email" tabindex="-1" autocomplete="off">
+                    </div>
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" class="form-control" required
-                            placeholder="Your full name" />
+                            placeholder="Your full name" minlength="4" />
                     </div>
 
                     <div class="form-group">
@@ -155,7 +162,8 @@
                                 <option value="+971">+971</option>
                             </select>
                             <input type="tel" id="mobile" name="mobile" class="form-control mobile-input" required
-                                placeholder="Enter number" />
+                                placeholder="Enter number" minlength="7" maxlength="15" pattern="[0-9]{7,15}"
+                                title="Please enter a valid mobile number (7-15 digits)" />
                         </div>
                     </div>
 
@@ -279,9 +287,9 @@
                                 aria-hidden="true">
                                 <use href="assets/images/icons.svg#icon-facebook" />
                             </svg></a>
-                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
-                            class="footer-social-link" aria-label="Instagram"><svg width="22" height="22"
-                                aria-hidden="true">
+                        <a href="https://www.instagram.com/diamonds.shrestha?utm_source=qr&igsh=MTQ2d2ZvaTBpcmE4eQ=="
+                            target="_blank" rel="noopener noreferrer" class="footer-social-link"
+                            aria-label="Instagram"><svg width="22" height="22" aria-hidden="true">
                                 <use href="assets/images/icons.svg#icon-instagram" />
                             </svg></a>
                         <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"
@@ -311,6 +319,13 @@
             </div>
         </div>
     </footer>
+
+    <a href="https://wa.me/918904611111" class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+        aria-label="WhatsApp">
+        <svg>
+            <use href="assets/images/icons.svg#icon-whatsapp" />
+        </svg>
+    </a>
 
     <script src="assets/js/config.js" defer></script>
     <script src="assets/js/main.js" defer></script>

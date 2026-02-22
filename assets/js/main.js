@@ -8,6 +8,7 @@
     "use strict";
 
     const BREAKPOINT_MOBILE = 768;
+    const pageLoadTime = Date.now();
 
     /**
      * Navbar: add/remove 'scrolled' based on scroll position (transparent over hero).
@@ -144,6 +145,7 @@
             "I1",
             "I2",
             "I3",
+            "PK",
         ];
         const cutGrades = ["Poor", "Fair", "Good", "Very Good", "Excellent"];
 
@@ -213,48 +215,79 @@
 
         form.addEventListener("submit", (e) => {
             e.preventDefault();
-            const mobileNumber = document
-                .getElementById("mobileNumber")
-                ?.value?.trim();
-            if (!mobileNumber) {
-                alert("Please enter your mobile number");
+
+            // Anti-bot validations
+            const honeyPot = document.getElementById("b_name")?.value;
+            const timeElapsed = Date.now() - pageLoadTime;
+            
+            if (honeyPot) {
+                console.warn("Bot detected via honeypot.");
+                return;
+            }
+            if (timeElapsed < 3000) { // Humans typically take > 3s to fill this
+                console.warn("Submission too fast. Possible bot.");
                 return;
             }
 
-            const get = (id) => document.getElementById(id)?.value || "";
-            const shape = shapeInput?.value || "Not specified";
-            const colourIdx = colourSlider
-                ? parseInt(colourSlider.value, 10)
-                : 0;
-            const colour =
-                colourGrades[Math.min(colourIdx, colourGrades.length - 1)];
-            const clarityIdx = claritySlider
-                ? parseInt(claritySlider.value, 10)
-                : 0;
-            const clarity =
-                clarityGrades[Math.min(clarityIdx, clarityGrades.length - 1)];
-            const cutIdx = cutSlider ? parseInt(cutSlider.value, 10) : 0;
-            const cut = cutGrades[Math.min(cutIdx, cutGrades.length - 1)];
-            const priceMin = get("priceMin") || "Not specified";
-            const priceMax = get("priceMax") || "Not specified";
-            const caratRange = get("caratRange") || "Not specified";
+            const getVal = (id) => document.getElementById(id)?.value?.trim() || "";
+            const mobileNumber = getVal("mobileNumber");
+            const shapeSelected = shapeInput?.value || "";
+            const diamondTypeSelected = getVal("diamondType");
+            const caratRangeSelected = getVal("caratRange");
 
-            const message = [
+            if (!diamondTypeSelected) {
+                alert("Please select a diamond type");
+                return;
+            }
+            if (!shapeSelected) {
+                alert("Please select a diamond shape");
+                const shapeContainer = document.querySelector(".shape-grid");
+                if (shapeContainer) {
+                    shapeContainer.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center",
+                    });
+                    shapeContainer.style.outline = "2px solid #002360";
+                    setTimeout(() => {
+                        shapeContainer.style.outline = "none";
+                    }, 2000);
+                }
+                return;
+            }
+            if (!caratRangeSelected) {
+                alert("Please select a carat range");
+                return;
+            }
+            if (!mobileNumber || mobileNumber.length < 10) {
+                alert("Please enter a valid mobile number (at least 10 digits)");
+                return;
+            }
+
+            const colourIdx = colourSlider ? parseInt(colourSlider.value, 10) : 0;
+            const colourSelected = colourGrades[Math.min(colourIdx, colourGrades.length - 1)];
+            const clarityIdx = claritySlider ? parseInt(claritySlider.value, 10) : 0;
+            const claritySelected = clarityGrades[Math.min(clarityIdx, clarityGrades.length - 1)];
+            const cutIdx = cutSlider ? parseInt(cutSlider.value, 10) : 0;
+            const cutSelected = cutGrades[Math.min(cutIdx, cutGrades.length - 1)];
+            const priceMinSelected = getVal("priceMin") || "Not specified";
+            const priceMaxSelected = getVal("priceMax") || "Not specified";
+
+            const messageBody = [
                 "Hello SHRESTHA DIAMONDS,",
                 "",
                 "I would like to register and inquire about:",
                 "",
-                `Diamond Type: ${get("diamondType") || "Not specified"}`,
-                `Shape: ${shape}`,
-                `Carat Range: ${caratRange}`,
-                `Colour: up to ${colour}`,
-                `Clarity: up to ${clarity}`,
-                `Cut: up to ${cut}`,
-                `Price Range: ${priceMin} – ${priceMax}`,
+                `Diamond Type: ${diamondTypeSelected || "Not specified"}`,
+                `Shape: ${shapeSelected || "Not specified"}`,
+                `Carat Range: ${caratRangeSelected || "Not specified"}`,
+                `Colour: up to ${colourSelected}`,
+                `Clarity: up to ${claritySelected}`,
+                `Cut: up to ${cutSelected}`,
+                `Price Range: ${priceMinSelected} – ${priceMaxSelected}`,
                 `Mobile: ${mobileNumber}`,
             ].join("\n");
 
-            openWhatsApp(whatsappNumber, message);
+            openWhatsApp(whatsappNumber, messageBody);
         });
     }
 
@@ -276,15 +309,40 @@
 
         form.addEventListener("submit", (e) => {
             e.preventDefault();
-            const name = document.getElementById("name")?.value?.trim();
-            const sector = document.getElementById("sector")?.value?.trim();
-            const country = document.getElementById("country")?.value?.trim();
-            const countryCode =
-                document.getElementById("countryCode")?.value?.trim() || "";
-            const mobile = document.getElementById("mobile")?.value?.trim();
 
-            if (!name || !sector || !country || !mobile) {
-                alert("Please fill in all required fields");
+            // Anti-bot validations
+            const honeyPot = document.getElementById("b_email")?.value;
+            const timeElapsed = Date.now() - pageLoadTime;
+
+            if (honeyPot) {
+                console.warn("Bot detected via honeypot.");
+                return;
+            }
+            if (timeElapsed < 3000) { // Humans typically take > 3s to fill this
+                console.warn("Submission too fast. Possible bot.");
+                return;
+            }
+
+            const name = document.getElementById("name")?.value?.trim() || "";
+            const sector = document.getElementById("sector")?.value?.trim() || "";
+            const country = document.getElementById("country")?.value?.trim() || "";
+            const countryCode = document.getElementById("countryCode")?.value?.trim() || "";
+            const mobile = document.getElementById("mobile")?.value?.trim() || "";
+
+            if (!name || name.length < 2) {
+                alert("Please enter your full name (at least 2 characters)");
+                return;
+            }
+            if (!sector) {
+                alert("Please select your business sector");
+                return;
+            }
+            if (!country) {
+                alert("Please select your country");
+                return;
+            }
+            if (!mobile || mobile.length < 7) {
+                alert("Please enter a valid mobile number (at least 7 digits)");
                 return;
             }
 

@@ -5,10 +5,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>
-        SHRESTHA DIAMONDS - Premium Diamonds from Mines to Jewellery
+        SHRESTHA DIAMONDS | Leading Diamond Trader & Importer in South India & Nepal
     </title>
     <meta name="description"
-        content="SHRESTHA DIAMONDS offers ethically sourced diamonds and fine jewellery. Choose from solitaire, polki, and premium collections. Certified by GIA, IGI, HRD. Book your trade today." />
+        content="SHRESTHA DIAMONDS: Leading trader, importer, and exporter of premium diamonds in South India and Nepal. Mangaluru central hub for prompt 24-48h delivery. GIA & IGI certified solitaires, polki, and fancy cuts." />
     <link rel="canonical" href="https://shresthadiamonds.com/" />
 
     <!-- Open Graph -->
@@ -55,16 +55,36 @@
     <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
-                "@type": "LocalBusiness",
+                "@type": "Organization",
                 "name": "SHRESTHA DIAMONDS",
-                "description": "Premium diamonds and fine jewellery. Ethically sourced, certified by GIA, IGI, HRD Antwerp.",
+                "description": "Leading diamond trader, importer, and exporter serving the South Indian and Nepal jewellery markets. Specializing in GIA & IGI certified premium diamonds, solitaires, and Syndicate Polki.",
                 "url": "https://shresthadiamonds.com",
-                "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&q=80",
-                "telephone": "+91-8904611111",
-                "priceRange": "$$",
-                "address": { "@type": "PostalAddress", "addressCountry": "IN" },
-                "sameAs": [],
-                "openingHoursSpecification": []
+                "logo": "https://shresthadiamonds.com/assets/images/logo.png",
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "telephone": "+91-8904611111",
+                    "contactType": "sales",
+                    "areaServed": ["IN", "NP"],
+                    "availableLanguage": ["English", "Hindi", "Kannada"]
+                },
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Mangaluru",
+                    "addressRegion": "Karnataka",
+                    "addressCountry": "IN"
+                },
+                "location": [
+                    {
+                        "@type": "Place",
+                        "name": "Mangaluru Central Stock Hub",
+                        "address": { "@type": "PostalAddress", "addressLocality": "Mangaluru", "addressCountry": "IN" }
+                    },
+                    {
+                        "@type": "Place",
+                        "name": "Kathmandu Overseas Facility",
+                        "address": { "@type": "PostalAddress", "addressLocality": "Kathmandu", "addressCountry": "NP" }
+                    }
+                ]
             }
         </script>
 </head>
@@ -114,7 +134,7 @@
                 From mines<br />to jewellery.
             </h1>
             <div class="hero-cta reveal-text">
-                <a href="#collection" class="btn-hero-primary">Explore Collection</a>
+                <a href="index.html#collection" class="btn-hero-primary">Explore Collection</a>
             </div>
         </div>
         <div class="scroll-indicator reveal-text">
@@ -205,7 +225,7 @@
     </section>
 
     <!-- Diamond Selection Box -->
-    <section class="diamond-selection section-reveal">
+    <section id="collection" class="diamond-selection section-reveal">
         <div class="diamond-sketches diamond-sketches--selection" aria-hidden="true">
             <svg class="diamond-sketch diamond-sketch--pear" viewBox="0 0 120 140" aria-hidden="true">
                 <use href="assets/images/icons.svg#diamond-sketch-pear" />
@@ -239,26 +259,29 @@
                     set ranges, and we’ll match you with the right stones.
                 </p>
                 <form id="diamondForm" class="diamond-form filters-form">
+                    <div class="hp-field">
+                        <label for="b_name">Bot Name</label>
+                        <input type="text" id="b_name" name="b_name" tabindex="-1" autocomplete="off">
+                    </div>
                     <input type="hidden" id="shape" name="shape" value="" />
 
                     <div class="filter-block">
                         <label class="filter-label">Diamond type</label>
-                        <select id="diamondType" class="form-control filter-select">
-                            <option value="">Any type</option>
-                            <option value="solitaire">Solitaire</option>
-                            <option value="two">Two</option>
+                        <select id="diamondType" class="form-control filter-select" required>
+                            <option value="">Select type</option>
+                            <option value="minus-two">Minus two</option>
                             <option value="star-melle">Star Melle</option>
+                            <option value="solitaire">Solitaire</option>
                             <option value="polki">Polki</option>
-                            <option value="solitaire-">Solitaire –</option>
                         </select>
                     </div>
 
                     <div class="filter-block filter-shape">
                         <label class="filter-label">Shape</label>
                         <div class="shape-grid" role="group" aria-label="Diamond shape">
-                            <button type="button" class="shape-btn" data-shape="round" title="Round">
+                            <button type="button" class="shape-btn" data-shape="round" title="Round Brilliant Cut">
                                 <span class="shape-icon shape-round"></span>
-                                <span>Round</span>
+                                <span>Round Brilliant</span>
                             </button>
                             <button type="button" class="shape-btn" data-shape="princess" title="Princess">
                                 <span class="shape-icon shape-princess"></span>
@@ -320,10 +343,10 @@
                         <div class="filter-block filter-slider-block">
                             <label class="filter-label">Clarity
                                 <span class="filter-value" id="clarityValue">IF</span></label>
-                            <input type="range" id="claritySlider" class="filter-range" min="0" max="10" value="0"
+                            <input type="range" id="claritySlider" class="filter-range" min="0" max="11" value="0"
                                 step="1" aria-label="Clarity grade" />
                             <div class="slider-labels slider-labels-clarity">
-                                <span>IF</span><span>VVS1</span><span>VVS2</span><span>VS1</span><span>VS2</span><span>SI1</span><span>SI2</span><span>SI3</span><span>I1</span><span>I2</span><span>I3</span>
+                                <span>IF</span><span>VVS1</span><span>VVS2</span><span>VS1</span><span>VS2</span><span>SI1</span><span>SI2</span><span>SI3</span><span>I1</span><span>I2</span><span>I3</span><span>PK</span>
                             </div>
                         </div>
                     </div>
@@ -340,47 +363,50 @@
                             </div>
                         </div>
                         <div class="filter-block">
-                            <label class="filter-label" for="caratRange">Carat range</label>
-                            <select id="caratRange" class="form-control filter-select" aria-label="Carat range">
+                            <select id="caratRange" class="form-control filter-select" aria-label="Carat range"
+                                required>
                                 <option value="">Select carat range</option>
-                                <option value="0.20-0.30 Ct">
-                                    0.20-0.30 Ct
+                                <option value="0-0.14 carat">
+                                    0 to 0.14 carat
                                 </option>
-                                <option value="0.30-0.40 Ct">
-                                    0.30-0.40 Ct
+                                <option value="0.14-0.30 carat">
+                                    0.14 - 0.30 carat
                                 </option>
-                                <option value="0.40-0.50 Ct">
-                                    0.40-0.50 Ct
+                                <option value="0.30-0.40 carat">
+                                    0.30-0.40 carat
                                 </option>
-                                <option value="0.50-0.60 Ct">
-                                    0.50-0.60 Ct
+                                <option value="0.40-0.50 carat">
+                                    0.40-0.50 carat
                                 </option>
-                                <option value="0.60-0.70 Ct">
-                                    0.60-0.70 Ct
+                                <option value="0.50-0.60 carat">
+                                    0.50-0.60 carat
                                 </option>
-                                <option value="0.70-0.80 Ct">
-                                    0.70-0.80 Ct
+                                <option value="0.60-0.70 carat">
+                                    0.60-0.70 carat
                                 </option>
-                                <option value="0.80-0.90 Ct">
-                                    0.80-0.90 Ct
+                                <option value="0.70-0.80 carat">
+                                    0.70-0.80 carat
                                 </option>
-                                <option value="0.90-1.00 Ct">
-                                    0.90-1.00 Ct
+                                <option value="0.80-0.90 carat">
+                                    0.80-0.90 carat
                                 </option>
-                                <option value="1.00-1.20 Ct">
-                                    1.00-1.20 Ct
+                                <option value="0.90-1.00 carat">
+                                    0.90-1.00 carat
                                 </option>
-                                <option value="1.20-1.40 Ct">
-                                    1.20-1.40 Ct
+                                <option value="1.00-1.20 carat">
+                                    1.00-1.20 carat
                                 </option>
-                                <option value="1.40-1.60 Ct">
-                                    1.40-1.60 Ct
+                                <option value="1.20-1.40 carat">
+                                    1.20-1.40 carat
                                 </option>
-                                <option value="1.60-1.80 Ct">
-                                    1.60-1.80 Ct
+                                <option value="1.40-1.60 carat">
+                                    1.40-1.60 carat
                                 </option>
-                                <option value="1.80-2.00 Ct">
-                                    1.80-2.00 Ct
+                                <option value="1.60-1.80 carat">
+                                    1.60-1.80 carat
+                                </option>
+                                <option value="1.80-2.00 carat">
+                                    1.80-2.00 carat
                                 </option>
                                 <option value="2+ Carat">2+ Carat</option>
                             </select>
@@ -391,7 +417,8 @@
                         <div class="filter-block filter-contact">
                             <label class="filter-label" for="mobileNumber">Your mobile number</label>
                             <input type="tel" id="mobileNumber" class="form-control filter-input"
-                                placeholder="Enter your mobile number" required />
+                                placeholder="Enter your mobile number" required minlength="10" maxlength="15"
+                                pattern="[0-9]{10,15}" title="Please enter a valid mobile number (10-15 digits)" />
                         </div>
                     </div>
 
@@ -549,7 +576,7 @@
                     <h3>Carat</h3>
                     <p>
                         Weight directly influences size and presence. We
-                        offer a full range from 0.20 Ct to 2+ Ct to match
+                        offer a full range from 0.20 carat to 2+ carat to match
                         every preference.
                     </p>
                 </div>
@@ -620,8 +647,8 @@
                                 <use href="assets/images/icons.svg#icon-facebook" />
                             </svg>
                         </a>
-                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
-                            class="footer-social-link" aria-label="Instagram">
+                        <a href="https://www.instagram.com/diamonds.shrestha?utm_source=qr&igsh=MTQ2d2ZvaTBpcmE4eQ=="
+                            target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram">
                             <svg width="22" height="22" aria-hidden="true">
                                 <use href="assets/images/icons.svg#icon-instagram" />
                             </svg>
@@ -657,6 +684,13 @@
             </div>
         </div>
     </footer>
+
+    <a href="https://wa.me/918904611111" class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+        aria-label="WhatsApp">
+        <svg>
+            <use href="assets/images/icons.svg#icon-whatsapp" />
+        </svg>
+    </a>
 
     <script src="assets/js/config.js" defer></script>
     <script src="assets/js/main.js" defer></script>

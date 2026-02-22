@@ -4211,7 +4211,7 @@ html {
 .philosophy-featured-image {
     width: 100%;
     overflow: hidden;
-    border-radius: 0; /* Sharp edges for modern look or slight radius */
+    border-radius: 12px; /* Subtle rounding for a softer, premium look */
 }
 
 .philosophy-featured-image img {
@@ -4326,6 +4326,7 @@ html {
 .btn-philosophy {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.75rem;
     padding: 0.875rem 1.75rem;
     background-color: #08264e; /* Lighter shade of primary blue */
@@ -4338,6 +4339,7 @@ html {
     border: 1px solid transparent;
     box-shadow: 0 4px 14px rgba(59, 93, 146, 0.25);
     letter-spacing: 0.02em;
+    text-align: center;
 }
 
 .btn-philosophy:hover {
@@ -4525,6 +4527,7 @@ html {
     font-weight: 700;
     color: var(--text-dark);
     margin-bottom: 0.1rem;
+    overflow-wrap: break-word;
 }
 
 .trust-author-info span {
@@ -5128,4 +5131,72 @@ html {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
+}
+
+/* ==========================================================================
+   WhatsApp Floating Button
+   ========================================================================== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    width: 65px;
+    height: 65px;
+    background-color: #25d366;
+    color: white !important;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+    z-index: 9999;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+    background-color: #20ba5a;
+}
+
+.whatsapp-float svg {
+    width: 35px;
+    height: 35px;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .btn-philosophy {
+        width: 100%;
+    }
+    .philosophy-actions,
+    .book-trade-buttons,
+    .trust-cta-row {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+    .trust-headline {
+        font-size: 2.2rem;
+    }
+    .whatsapp-float {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 55px;
+        height: 55px;
+    }
+    .whatsapp-float svg {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Honeypot field - hidden from users but visible to bots */
+.hp-field {
+    display: none !important;
+    visibility: hidden !important;
+    position: absolute;
+    left: -9999px;
 }
