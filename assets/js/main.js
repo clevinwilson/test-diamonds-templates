@@ -18,7 +18,7 @@
         if (!navbar) return;
 
         function updateNavbar() {
-            /* Only toggle 'scrolled' on index (navbar-transparent); other pages keep solid nav */
+            /* Toggle 'scrolled' based on scroll position for any page with navbar-transparent */
             if (!navbar.classList.contains("navbar-transparent")) return;
             const heroHeight = hero ? hero.offsetHeight : 400;
             const threshold =
