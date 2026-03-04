@@ -24,7 +24,19 @@
             const heroHeight = hero ? hero.offsetHeight : 400;
             const threshold =
                 heroHeight * (CONFIG?.scroll?.navbarThreshold ?? 0.15);
-            navbar.classList.toggle("scrolled", window.scrollY > threshold);
+            
+            const isScrolled = window.scrollY > threshold;
+            navbar.classList.toggle("scrolled", isScrolled);
+            
+            // Swap logo to black version on scroll
+            const navLogo = navbar.querySelector(".nav-logo");
+            if (navLogo) {
+                if (isScrolled) {
+                    navLogo.src = "assets/images/black_logo_transparent_background.png";
+                } else {
+                    navLogo.src = "assets/images/logo.png";
+                }
+            }
         }
 
         window.addEventListener("scroll", updateNavbar, { passive: true });

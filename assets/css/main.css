@@ -170,6 +170,7 @@ img {
     object-fit: contain;
     display: block;
     margin-bottom: 0.2rem;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .navbar .container {
