@@ -145,20 +145,7 @@
         const cutValueEl = document.getElementById("cutValue");
 
         const colourGrades = ["D", "E", "F", "G", "H", "I", "J", "K", "L", "M"];
-        const clarityGrades = [
-            "IF",
-            "VVS1",
-            "VVS2",
-            "VS1",
-            "VS2",
-            "SI1",
-            "SI2",
-            "SI3",
-            "I1",
-            "I2",
-            "I3",
-            "PK",
-        ];
+        const clarityGrades = ["FL / IF", "VVS1", "VVS2", "VS1", "VS2", "SI1", "SI2", "SI3", "I1", "I2", "I3", "PK"];
         const cutGrades = ["Poor", "Fair", "Good", "Very Good", "Excellent"];
 
         function highlightLabelAt(labelsContainer, index) {
@@ -171,7 +158,7 @@
             if (!colourSlider || !colourValueEl) return;
             const i = parseInt(colourSlider.value, 10);
             const letter = colourGrades[Math.min(i, colourGrades.length - 1)];
-            colourValueEl.textContent = i <= 0 ? letter : "D – " + letter;
+            colourValueEl.textContent = letter;
             highlightLabelAt(
                 document.querySelector(".slider-labels-colour"),
                 i,
@@ -181,12 +168,8 @@
         function updateClarityLabel() {
             if (!claritySlider || !clarityValueEl) return;
             const i = parseInt(claritySlider.value, 10);
-            clarityValueEl.textContent =
-                i <= 0
-                    ? clarityGrades[0]
-                    : clarityGrades[0] +
-                      " – " +
-                      clarityGrades[Math.min(i, clarityGrades.length - 1)];
+            const grade = clarityGrades[Math.min(i, clarityGrades.length - 1)];
+            clarityValueEl.textContent = grade;
             highlightLabelAt(
                 document.querySelector(".slider-labels-clarity"),
                 i,
@@ -196,12 +179,8 @@
         function updateCutLabel() {
             if (!cutSlider || !cutValueEl) return;
             const i = parseInt(cutSlider.value, 10);
-            cutValueEl.textContent =
-                i <= 0
-                    ? cutGrades[0]
-                    : cutGrades[0] +
-                      " – " +
-                      cutGrades[Math.min(i, cutGrades.length - 1)];
+            const grade = cutGrades[Math.min(i, cutGrades.length - 1)];
+            cutValueEl.textContent = grade;
             highlightLabelAt(document.querySelector(".slider-labels-cut"), i);
         }
 
@@ -281,8 +260,6 @@
             const claritySelected = clarityGrades[Math.min(clarityIdx, clarityGrades.length - 1)];
             const cutIdx = cutSlider ? parseInt(cutSlider.value, 10) : 0;
             const cutSelected = cutGrades[Math.min(cutIdx, cutGrades.length - 1)];
-            const priceMinSelected = getVal("priceMin") || "Not specified";
-            const priceMaxSelected = getVal("priceMax") || "Not specified";
 
             const messageBody = [
                 "Hello SHRESTHA DIAMONDS,",
@@ -292,10 +269,9 @@
                 `Diamond Type: ${diamondTypeSelected || "Not specified"}`,
                 `Shape: ${shapeSelected || "Not specified"}`,
                 `Carat Range: ${caratRangeSelected || "Not specified"}`,
-                `Colour: up to ${colourSelected}`,
-                `Clarity: up to ${claritySelected}`,
-                `Cut: up to ${cutSelected}`,
-                `Price Range: ${priceMinSelected} – ${priceMaxSelected}`,
+                `Colour: ${colourSelected}`,
+                `Clarity: ${claritySelected}`,
+                `Cut: ${cutSelected}`,
                 `Mobile: ${mobileNumber}`,
             ].join("\n");
 
