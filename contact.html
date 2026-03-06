@@ -127,7 +127,7 @@
                             style="appearance: none; -webkit-appearance: none;">
                             <option value="">Select Sector</option>
                             <option value="jeweller">Jeweller</option>
-                            <option value="manufacture">Manufacture</option>
+                            <option value="manufacture">Manufacturer</option>
                             <option value="wholesaler">Wholesaler</option>
                             <option value="designer">Designer</option>
                             <option value="trader">Trader</option>
@@ -156,12 +156,14 @@
                         <label for="mobile">Mobile</label>
                         <div class="mobile-input-group">
                             <select id="countryCode" name="countryCode" class="country-code-select">
-                                <option value="+91">+91</option>
-                                <option value="+977">+977</option>
-                                <option value="+1">+1</option>
-                                <option value="+44">+44</option>
-                                <option value="+61">+61</option>
-                                <option value="+971">+971</option>
+                                <option value="+91" data-country="india">+91</option>
+                                <option value="+977" data-country="nepal">+977</option>
+                                <option value="+1" data-country="usa">+1</option>
+                                <option value="+44" data-country="uk">+44</option>
+                                <option value="+61" data-country="australia">+61</option>
+                                <option value="+971" data-country="uae">+971</option>
+                                <option value="+65" data-country="singapore">+65</option>
+                                <option value="+852" data-country="hong-kong">+852</option>
                             </select>
                             <input type="tel" id="mobile" name="mobile" class="form-control mobile-input" required
                                 placeholder="Enter number" minlength="7" maxlength="15" pattern="[0-9]{7,15}"
@@ -338,6 +340,42 @@
 
     <script src="assets/js/config.js" defer></script>
     <script src="assets/js/main.js" defer></script>
+    <script>
+        (function () {
+            var countrySelect = document.getElementById('country');
+            var countryCodeSelect = document.getElementById('countryCode');
+            if (!countrySelect || !countryCodeSelect) return;
+
+            var codeByCountry = {
+                'india': '+91',
+                'nepal': '+977',
+                'usa': '+1',
+                'uk': '+44',
+                'canada': '+1',
+                'australia': '+61',
+                'uae': '+971',
+                'singapore': '+65',
+                'hong-kong': '+852',
+                'other': '+91'
+            };
+
+            function syncCodeToCountry() {
+                var country = countrySelect.value;
+                if (!country) return;
+                var code = codeByCountry[country];
+                if (code) {
+                    var option = countryCodeSelect.querySelector('option[value="' + code + '"]');
+                    if (option) {
+                        countryCodeSelect.value = code;
+                    } else {
+                        countryCodeSelect.selectedIndex = 0;
+                    }
+                }
+            }
+
+            countrySelect.addEventListener('change', syncCodeToCountry);
+        })();
+    </script>
 </body>
 
 </html>
